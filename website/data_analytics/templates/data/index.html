@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+<form action="/data/csv_data_set/" method="POST" enctype="multipart/form-data">
+  <div class="ml-3">
+    <div class="containter">
+      <label for="data_set">Import CSV Below</label>
+    </div>
+  </div>
+  <input
+    id="data_set"
+    type="file"
+    name="data_set"
+    class="btn btn-light"
+    accept=".csv"
+  />
+  <div class="ml-3">
+    <div class="containter">
+      <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+  </div>
+</form>
+{% endblock %}

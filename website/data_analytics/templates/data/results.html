@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+  <h2 class="sub-header">Columns with over 50% Null Values</h2>
+  <table class="table table-hover">
+    <thead>
+      <th class="col-md-1">Column</th>
+      <th class="col-md-2">Missing</th>
+    </thead>
+    {% for key, value in null_values.items %} {% if value > .5 %}
+    <tbody>
+      <th class="col-md-1">{{ key }}</th>
+      <th class="col-md-2">{{ value }}</th>
+    </tbody>
+    {% endif %} {% endfor %}
+  </table>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+  <h2 class="sub-header">Details</h2>
+  <table class="table table-hover">
+    <thead>
+      <th class="col-md-1">Column</th>
+      <th class="col-md-2">Mean</th>
+      <th class="col-md-3">STD</th>
+      <th class="col-md-4">Range</th>
+    </thead>
+    {% for column_name, mean, std, range in list %}
+    <tbody>
+      <th class="col-md-1">{{ column_name }}</th>
+      <th class="col-md-2">{{ mean }}</th>
+      <th class="col-md-3">{{ std }}</th>
+      <th class="col-md-4">{{ range }}</th>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
